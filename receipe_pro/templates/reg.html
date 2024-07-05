@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{%block start%}
+<style>
+  body{
+    /* background-image: url(../static/image/pexels-eberhardgross-844297.jpg); */
+    /* background-image: url("../static/image/preview.jpeg"); */
+    background-color: antiquewhite;
+
+  }
+  .custom-card {
+    max-width: 1000px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* background-size: cover; Ensure the background image covers the card */
+    background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+  }
+
+</style>
+<div  class="card mb-3 " style="max-width: 1000px; max-height: 700px;  padding: 30px; margin-top: 30px; margin-left: 300px; background-color: white;"  >
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="../static/image/Screenshot_2024-06-23_162801-removebg-preview.png" class="img-fluid  rounded-start" alt="..." style="margin-top: 200px;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <form class="col-10 max-auto card  p-5  m-1 shadow-lg just " method="post" enctype="multipart/form-data">   
+      
+          <h1 class="card-title">Register</h1>
+          <p>Create your account </p>
+            {% csrf_token %} 
+            <div class="mb-1 ">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" name="username"  aria-describedby="username" required>
+              <div id="username" class="form-text">Enter username </div>
+            </div>
+            
+            <div class="mb-1 ">
+              <label for="InputEmail" class="form-label">Enter Email</label>
+              <input type="email" class="form-control" name="email"  aria-describedby="email" required>
+              <div id="emailHelp" class="form-text">Enter your Email</div>
+            </div>
+            
+            <div class="mb-1">
+              <label for="InputPassword"  class="form-label"> Enter Password</label>
+              <input type="password" name="user_pass" class="form-control" required>
+            </div>
+            <div class="mb-1 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+
+            {% if messages %}
+            <div class="alert alert-primary" role="alert">
+              {% for message in messages %}
+              {{message}}
+              {% endfor %}
+            
+            </div>
+            {% endif %}
+          </form>
+          <p>I have already register <a href="/Login/">Login</a></p>
+
+
+        <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+           
+{% endblock %}
+    
+        
+          
+          
+   

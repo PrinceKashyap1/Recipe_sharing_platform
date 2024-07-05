@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{%block start%}
+ <style>
+   body{
+    background-color: antiquewhite;
+   } 
+     h1{
+        text-align: center;
+    }
+    /* p{
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size:11px;
+        text-align: justify;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }  */
+    img{
+        
+        height: 100px;
+        width: 100px;
+     }
+    table tr {
+     
+        margin: 70px ;
+        margin-left: 110px;
+    } 
+   
+</style>
+<body>
+
+    <h1 style="padding: 20px; margin-bottom: 20px; border: 2px solid black; background-color: rgb(201, 117, 7); color: white;">Contact</h1>
+    <div  style= " height: 20rem; border-radius:20px ; width: 50rem; margin-left: 375px; margin-top: 50px; background-color: antiquewhite;">
+       
+        <table>
+            <tr >
+                <td >
+        <img src="../static/image/441318.png" alt="contact logo" >
+    </td>
+    <td>
+        <h1>+ 1800 2323 8989</h1>
+    </td>
+    </tr>
+
+    <tr >
+        <td><img src="../static/image/208-2085578_email-emoji-black-and-white.png" alt="email address"></td>
+        <td><h1>chefrecipe02@gmail.com</td>
+    </tr>
+    </table>
+        
+    </div>
+</body>
+
+
+
+
+{% endblock %}

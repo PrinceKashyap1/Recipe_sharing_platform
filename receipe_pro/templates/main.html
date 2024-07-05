@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block start%}
+<style>
+  body {
+    /* background-image: url("{% static   '../static/image/preview.jpeg' %} "); */
+    background-color: antiquewhite;
+    background-size: 1520px;
+
+  }
+
+  .Navbar-logo {
+    height: 40px;
+    width: 40px;
+  }
+
+  #intro {
+    margin-left: 50px;
+  }
+
+  button {
+    border-radius: 50%;
+  }
+#site1{
+  text-decoration: none;
+  color: rgb(158, 93, 7);
+  font-style: italic;
+}
+ 
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <img src="../static/image/Orange_and_Blue_Illustrative_Circle_Food_Logo-removebg-preview.png" alt=" logo"
+      class="Navbar-logo">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/addrecipe/">Add Recipe</a>
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" href="/Logout/">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/register/"> register</a>
+
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/contact/">Contact</a>
+        </li>
+
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/about/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/tandc/">T & C</a>
+        </li>
+
+        <form class="d-flex" role="search">
+          {% csrf_token %}
+          <input class="form-control me-2" name="Search" type="search" placeholder="Search" aria-label="Search"
+            required>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+  </div>
+</nav>
+
+
+{% if Recipe_count == 0 %}
+<h1 style=" padding: 10px;">Not Found</h1>
+<h5 style="padding: 10px;">"Item not found. Please check your search criteria and try again. <br>
+  You can return to the home page or adjust your search for better results."<br>
+  Go back to <a href="/main/">Home</a></h5>
+{% else %}
+
+
+
+<div style="background-color: rgb(235, 232, 225); height: 300px; border: 2px solid black;">
+  <marquee  direction="right">
+  <video muted autoplay loop style="width: 500px; padding: 5px;border: 5px solid antiquewhite;">
+
+    <source src="../static/video/6942478-hd_1920_1080_25fps.mp4" type="video/mp4">
+  </video>
+
+
+  <!-- <img src="../static/image/idli.jpg" style="width: 500px; "  > -->
+
+  <video muted autoplay loop style="width: 500px; padding: 5px; border: 5px solid antiquewhite;">
+
+    <source src="../static/video/2620043-uhd_3840_2160_25fps.mp4" type="video/mp4">
+  </video>
+
+  <video muted autoplay loop style="width: 500px; padding: 5px; border: 5px solid antiquewhite;">
+
+    <source src="../static/video/6161925-hd_1920_1080_30fps.mp4" type="video/mp4">
+  </video>
+</marquee>
+
+</div>
+
+{% if Search_name != None %}
+<a href="/main/">Home</a>
+{% else %}
+<h1 style="color: black; margin-left: 50px;margin-top: 30px;">Welcome {{user.username}} !</h1>
+<p id="intro">
+  We're excited to have you here! we bring together food lovers from around the world to share and
+  discover amazing recipes.<br /> Whether you're a seasoned chef or a kitchen novice, you'll find inspiration, tips, and
+  a
+  community of fellow food enthusiasts.<br />
+
+  Explore, share, and connect—let's make cooking a delightful adventure together!
+<p>
+  {% endif %}
+
+  <!-- =============================================================== -->
+
+<div class="container">
+  <div class="row">
+    {%for item in Recipes %}
+    <div class="card m-3 p-3" style="width: 25rem; height: 40rem; ">
+      <div class="card-body">
+        <h6>id:[{{item.pk}}] {{item.recipe_user_name}}</h6>
+        <img class="card-img-top img-fluid" src="{{item.recipe_image.url}}" alt="Card image cap"
+          style="height: 20rem ; width: 25rem; ">
+        <h5 class="card-title">{{forloop.counter}}. {{item.recipe_name}}</h5>
+        <p class="card-text">{{item.recipe_description}}
+          {% if request.user.is_authenticated %}
+          <br />click here for more ->>
+          <a id="site1" href="{% url 'Recipe_detail' item.pk %}">Detail</a>
+          {% else %}
+          <br />click here for more->>
+          <a id="site1" href="/Login/">Detail</a>
+          {% endif %}
+        </p>
+
+
+      </div>
+    </div>
+
+    {% endfor %}
+
+
+  </div>
+</div>
+</div>
+{% endif %}
+
+
+
+{% endblock %}

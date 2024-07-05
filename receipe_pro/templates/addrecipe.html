@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{%block start%}
+<style>
+body{
+    /* background-image: url(../static/image/pexels-ben-mack-6775241.jpg) ; */
+    background-color: antiquewhite;
+
+}
+
+
+
+</style>
+    </div>
+      <h1 style="padding: 20px; margin-bottom: 20px; border: 2px solid black; background-color: rgb(201, 117, 7); color: white;">hello, {{user.username}} welcome !</h1>
+        <h3  style="margin-left:250px; ">Enter your Recipe</h3>       
+         
+           
+          <form class="col-8   card p-3  shadow-lg" style="margin-left: 250px;" method="post" enctype="multipart/form-data">
+               <div class="card-body">
+              {% csrf_token %}
+              <h2>Add Receipe</h2>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">User Name</label>
+                <input name="recipe_user_name" type="text" class="form-control" value="{{user.username}}" readonly aria>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Recipe Name</label>
+                <input name="receipe_name" type="text" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="Inputdesc"   class="form-label">Recipe description</label>
+                <textarea class="form-control " name="receipe_description" maxlength="255" required></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="Inputdesc"   class="form-label">Recipe detail description</label>
+                <textarea class="form-control " name="    recipe_detail_description" maxlength="840" required></textarea>
+              </div>
+              
+              <div class="mb-3 form-check">
+              <label class="form-check-label"for="exampleCheck1">Recipe image</label>
+              <input name="receipe_image" type="file" class="form-control" id="exampleCheck1" required>
+              </div>
+
+              <button type="submit" class="btn btn-success">add receipe</button>
+              <a href="/main/" style="margin-left: 10px;">back</a>
+
+            </form>
+
+           
+          
+
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+          {% for item in user_data%}
+          
+            
+          <div class="card m-3 p-3" style="width: 25rem; height: 40rem; ">
+            <div class="card-body">
+              <h6>[{{item.pk}}] {{item.recipe_user_name}}</h6>
+              <img class="card-img-top img fluid" src="{{item.recipe_image.url}}" alt="card_iamge">
+              <div style="width: 20rem; height: 12rem;">
+              <h5 class="card-title">{{forloop.counter}}.{{item.recipe_name}}</h5>
+              
+              <p class="card-text">{{item.recipe_description}}click here for more ->>
+             
+                <a href="{% url 'Recipe_detail' item.pk %}">Detail</a></p>
+              </div>
+
+              
+            <form method="post" action="{% url 'delete' item.pk %}">
+              {% csrf_token %}
+           
+              <button style="margin-left: 280px;" type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+
+          </div>
+      
+    
+          {%endfor%}
+      </div>
+    </div>
+   
+        
+    
+
+          
+          
+     
+
+     
+    
+      
+     
+    
+    
+
+
+{% endblock %}
+    
