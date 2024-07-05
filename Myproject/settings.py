@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-vphxt*v(j3*l7h0#xnd9m!g7yvlsc_i@5+g1o9*a%1q8pu&)00
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["vercel.app","now.sh","localhost","127.0.0.1"]
 
 
 # Application definition
@@ -80,22 +80,22 @@ WSGI_APPLICATION = 'Myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': 'vsOXfNMmepNGPYTfgqSajEBwxhbpbVmE',
-#         'HOST': 'roundhouse.proxy.rlwy.net',  # Set to your database server's address if not local
-#         'PORT': '28045',       # Default PostgreSQL port
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'LCrqhOInXyNQlCJWUdVYtCBGOTpPvNMx',
+        'HOST': 'monorail.proxy.rlwy.net',  # Set to your database server's address if not local
+        'PORT': '51552',       # Default PostgreSQL port
+    }
+}
 
 
 
@@ -133,12 +133,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles_build','static')
 
 STATICFILES_DIR  = [
     os.path.join(BASE_DIR,"static"),
 ]
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
