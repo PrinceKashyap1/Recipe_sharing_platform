@@ -8,13 +8,13 @@ load_dotenv()  # Take environment variables from .env.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-default-secret-key')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-vphxt*v(j3*l7h0#xnd9m!g7yvlsc_i@5+g1o9*a%1q8pu&)00')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ["vercel.app", "now.sh", "localhost", "127.0.0.1"]
 
 # Database configuration
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.config(default=os.environ.get('postgresql://postgres:LCrqhOInXyNQlCJWUdVYtCBGOTpPvNMx@monorail.proxy.rlwy.net:51552/railway'))
 }
 
 # Static files settings
