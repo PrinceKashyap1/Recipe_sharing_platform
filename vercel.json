@@ -13,7 +13,7 @@
       "src": "build_files",
       "use": "@vercel/static-build",
       "config": {
-          "disDir": "staticfiles_buld"
+          "disDir": "staticfiles_build"
         }
     }
     ],
