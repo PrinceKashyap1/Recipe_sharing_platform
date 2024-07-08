@@ -20,10 +20,26 @@ body{
                <div class="card-body">
               {% csrf_token %}
               <h2>Add Receipe</h2>
+
+              <div class="mb-3">
+                <label for="type" class="form-label">Choose The Recipe Type</label>
+                <select id="type" name="type">
+                  <option value="select" disabled selected >select the option</option>
+                  <option value="South Indian">South Indian</option>
+                  <option value="Itelian">Itelian</option>
+                  <option value="Chinese">Chinese</option>
+                  <option value="Indian">Indian</option>
+                  <option value="other">other</option>
+                </select>
+              </div>
+
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">User Name</label>
-                <input name="recipe_user_name" type="text" class="form-control" value="{{user.username}}" readonly aria>
+                <input name="recipe_user_name" type="text" class="form-control" value="{{user.username}}" style="background-color: lightyellow;" readonly aria>
               </div>
+
+         
+              
 
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Recipe Name</label>
@@ -37,7 +53,7 @@ body{
 
               <div class="mb-3">
                 <label for="Inputdesc"   class="form-label">Recipe detail description</label>
-                <textarea class="form-control " name="    recipe_detail_description" maxlength="840" required></textarea>
+                <textarea class="form-control " name="    recipe_detail_description" required></textarea>
               </div>
               
               <div class="mb-3 form-check">
@@ -76,13 +92,14 @@ body{
               
             <form method="post" action="{% url 'delete' item.pk %}">
               {% csrf_token %}
-           
+              
               <button style="margin-left: 280px;" type="submit" class="btn btn-danger">Delete</button>
             </form>
+            
           </div>
 
           </div>
-      
+        
     
           {%endfor%}
       </div>

@@ -28,6 +28,7 @@
     color: rgb(158, 93, 7);
     font-style: italic;
   }
+ 
 </style>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -90,21 +91,40 @@
 
 
 
-<div style="background-color: rgb(235, 232, 225); height: 300px; border: 2px solid black;">
-  <marquee direction="right">
-    <video muted autoplay loop style="width: 500px; padding: 5px;border: 5px solid antiquewhite;">
-      <source src="../static/video/6942478-hd_1920_1080_25fps.mp4" type="video/mp4">
-    </video>
+<div  style="background-color: rgb(235, 232, 225); height: 300px; border: 2px solid black;">
+  <div class="row">
+    <marquee behavior="slide" direction="down">
+    <table>
+      <tr>
+        <td>
+          <marquee  behavior="slide" direction="right">
+            <video muted autoplay loop style="width: 500px; padding: 5px;border: 5px solid antiquewhite;">
+              <source src="../static/video/6942478-hd_1920_1080_25fps.mp4" type="video/mp4">
+            </video>
+          </marquee>
+        </td>
+        <td>
+          <marquee  behavior="slide" direction="up">
+            <video muted autoplay loop style="width: 500px; padding: 5px; border: 5px solid antiquewhite;">
+              <source src="../static/video/2620043-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            </video>
+          </marquee>
+          
+        </td>
+        <td>
+          
+    <marquee  behavior="slide" direction="left">
+      <video muted autoplay loop style="width: 500px; padding: 5px; border: 5px solid antiquewhite;">
+        <source src="../static/video/5930361-uhd_3840_2160_30fps.mp4" type="video/mp4">
+      </video>
+    </marquee>
+        </td>
+      </tr>
+    </table>
+    </marquee>
+  
 
-    <video muted autoplay loop style="width: 500px; padding: 5px; border: 5px solid antiquewhite;">
-      <source src="../static/video/2620043-uhd_3840_2160_25fps.mp4" type="video/mp4">
-    </video>
-
-    <video muted autoplay loop style="width: 500px; padding: 5px; border: 5px solid antiquewhite;">
-      <source src="../static/video/Green and Beige Illustrative Healthy Food Presentation.mp4" type="video/mp4">
-    </video>
-  </marquee>
-
+</div>
 </div>
 
 {% if Search_name != None %}

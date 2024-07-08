@@ -6,25 +6,35 @@
     /* background-image: url("{% static 'image/preview.jpeg' %}"); */
     background-image: url("{{recipe.recipe_image.url}}");
     background-repeat: repeat;
-    background-size: 875px;
+    background-size: 1000px;
 
-    height: 500px;
-    width: 1000px;
+
   }
   h1{
     text-align: center;
     color: white;
+    padding: 10px;
     background-color: black;
+    border: 5px white solid;
 
+  }
+  .card{
+    background-color:antiquewhite;
+    border: 5px solid black; 
+    border-radius: 20px; 
+    padding: 20px; 
+    margin-left: 200px; 
+    margin-top: 20px; 
+    margin-right: 200px;
   }
   
 </style>
 <body>
- 
-
-
-  <div class="card" style="height: 700px; width: 900px; background-color:antiquewhite;border: 5px solid black; border-radius: 20px; padding: 20px; margin: 40px; margin-left: 375px; margin-top: 20px;">
   <h1 >{{ recipe.recipe_name }}</h1>
+
+
+  <div class="card" >
+
   <table>
     <tr>  
       <td> <img class="card-img-top" src="{{recipe.recipe_image.url}}" alt="Card image cap" style="height: 310px;

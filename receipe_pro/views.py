@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.shortcuts import render, get_object_or_404
+import time
 
 
 # Create your views here.
@@ -83,6 +84,7 @@ def addrecipe(request):
         data = request.POST 
         recipe_image = request.FILES.get('receipe_image')
         recipe_name = data.get('receipe_name')
+        recipe_type = data.get('type')
         recipe_user_name = recipe_user_name
         recipe_description = data.get('receipe_description')
         recipe_detail_description = data.get('recipe_detail_description')
@@ -90,6 +92,7 @@ def addrecipe(request):
     
         Recipe.objects.create(
             recipe_user_name = recipe_user_name,
+            recipe_type = recipe_type,
             recipe_name = recipe_name,
             recipe_description = recipe_description,
             recipe_detail_description = recipe_detail_description,
@@ -108,8 +111,13 @@ def addrecipe(request):
     return render(request, 'addrecipe.html',context)
 
 def delete(request,pk):
+    ask = "Do you want to Delete this recipe"
     if request.method == "POST":
+        ask
+    
+        
         recipe = get_object_or_404(Recipe,pk=pk)
+        
 
         recipe.delete()
         
@@ -136,13 +144,17 @@ def main(request):
     
     return render(request,"main.html",context)
 
+
 def tandc(request):
     return render(request,"tandc.html")
 
+
+def contact(request):
+    return render(request,"contact.html")
 # @login_required
 def Logout_page(request):
     logout(request)
-    return redirect('/main/')
+    return redirect('/Login/')
 
 def about(request):
 
