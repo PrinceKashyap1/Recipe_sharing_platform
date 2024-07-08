@@ -14,6 +14,8 @@
 
 ![image](https://github.com/PrinceKashyap1/Recipe_sharing_platform/assets/142121596/be5bfa22-b145-4309-8f8c-185c9925e561)
 
+![image](https://github.com/PrinceKashyap1/Recipe_sharing_platform/assets/142121596/a56d8e8d-4d0f-4264-a429-cfa1d94a04b1)
+
 ![image](https://github.com/PrinceKashyap1/Recipe_sharing_platform/assets/142121596/98f47e68-b543-4e2c-8ffb-6b1361096c6f)
 
 ![image](https://github.com/PrinceKashyap1/Recipe_sharing_platform/assets/142121596/259c22e0-347b-4446-bde2-52198ad703cf)
