@@ -12,6 +12,7 @@
 
 ![image](https://github.com/PrinceKashyap1/Recipe_sharing_platform/assets/142121596/36b912b0-f35b-4515-855a-5c4049bbc618)
 
+![image](https://github.com/PrinceKashyap1/Recipe_sharing_platform/assets/142121596/be5bfa22-b145-4309-8f8c-185c9925e561)
 
 ![image](https://github.com/PrinceKashyap1/Recipe_sharing_platform/assets/142121596/98f47e68-b543-4e2c-8ffb-6b1361096c6f)
 
